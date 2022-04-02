@@ -128,7 +128,7 @@ export default function Header() {
         </Grid>
       </Dialog>
       <div
-        className={`flex items-center justify-between px-20 sm:px-5 sticky top-0 bg-[rgba(255,255,255,.5)]`}
+        className={`flex items-center justify-between px-20 sm:px-5 sticky top-0 bg-[rgba(255,255,255,.5)] z-[1000]`}
       >
         <div className='flex'>
           {matches && (
