@@ -39,7 +39,7 @@ function App() {
                 textShadow:
                   "rgb(10 189 240 / 30%) 3px 3px 0px, rgb(254 1 1 / 30%) -3px -3px 0px",
               }}
-              className='text-dark text-[80px] font-bold text-center'
+              className='text-dark text-[80px] font-bold text-center sm:text-[55px]'
             >
               The O'Hare <br /> Project
             </p>
@@ -47,6 +47,12 @@ function App() {
               <Button
                 className='!bg-[#141416]  !border-accent !text-accent !normal-case sm:!text-2xl sm:!px-14 sm:!py-2'
                 style={{ border: "2px solid" }}
+                onClick={() =>
+                  window.open(
+                    "https://docs.google.com/document/d/1Sk2OrtdBYLBS9YCpz20DrGJZX81cxZMUkne7Oz8hDqM/edit",
+                    "_blank"
+                  )
+                }
               >
                 Roadmap
               </Button>
@@ -78,32 +84,32 @@ function App() {
       </section>
       <section id='the-project'>
         <Container className='flex justify-center py-8'>
-          <p className='text-[60px] text-white font-bold text-center mb-12'>
+          <p className='text-[60px] text-white font-bold text-center mb-12 sm:text-[40px] sm:mb-5'>
             The Project
           </p>
-          <Grid container spacing={10}>
+          <Grid container rowSpacing={matches ? 3 : 5} columnSpacing={10}>
             <Grid item md={6} xs={12} className='grid gap-5'>
-              <p className='text-xl font-normal text-white text-center'>
+              <p className='text-xl font-normal text-white text-left lg:text-center'>
                 Our project is based on a phenomenon that was made popular in
                 the 80's during the massive Hedge Fund expansion of the time.
               </p>
-              <p className='text-xl font-normal text-white text-center'>
+              <p className='text-xl font-normal text-white text-left lg:text-center'>
                 Traders would deploy a leveraged bet on a commodity, then head
                 to the Chicago, O'Hare International Airport.
               </p>
-              <p className='text-xl font-normal text-white text-center'>
+              <p className='text-xl font-normal text-white text-left lg:text-center'>
                 If the bet won, they were set for decades. If not, they bought a
                 one-way ticket to start a new life.
               </p>
             </Grid>
             <Grid item md={6} xs={12} className='grid gap-5'>
-              <p className='text-xl font-normal text-white text-center'>
+              <p className='text-xl font-normal text-white text-left lg:text-center'>
                 Luckily, in the world of cryptocurrency regulations we live in,
                 combined with the beauty of mathematics, we are able to mitigate
                 the risks of this play while still achieving similar results
                 through the use of this investment strategy.
               </p>
-              <p className='text-xl font-normal text-white text-center'>
+              <p className='text-xl font-normal text-white text-left lg:text-center'>
                 See whitepages for more.
               </p>
             </Grid>
@@ -112,7 +118,7 @@ function App() {
       </section>
       <section id='faq'>
         <Container className='flex justify-center py-8'>
-          <p className='text-[60px] text-white font-bold text-center mb-12'>
+          <p className='text-[60px] text-white font-bold text-center mb-12 sm:text-[40px] sm:mb-5'>
             F.A.Q.
           </p>
           <Grid container spacing={10}>
@@ -180,8 +186,8 @@ function App() {
             <Grid item xs={12} md={12}>
               <TextField label={"Write a message"} textarea />
             </Grid>
-            <Grid item xs={6} md={3} className='sm:pt-4'>
-              <Button className='!bg-[#373B4D]  !border-accent !text-white !normal-case !min-w-full'>
+            <Grid item xs={6} md={3}>
+              <Button className='!bg-[#373B4D]  !border-accent !text-white !normal-case !min-w-full sm:!mt-8'>
                 Submit
               </Button>
             </Grid>
@@ -189,7 +195,7 @@ function App() {
         </Container>
       </section>
 
-      <p className='text-xl text-white text-center mt-7 mb-5'>
+      <p className='text-xl text-white text-center mt-10 mb-5'>
         O'Hare Project &copy; Copyright {new Date().getFullYear()}
       </p>
     </div>

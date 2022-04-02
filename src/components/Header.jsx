@@ -11,13 +11,10 @@ import {
 } from "@mui/material";
 
 export default function Header() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery("(max-width:1023px)");
   const [isConnectDialogOpen, setConnectDialogOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const imgSize = "100px";
+  const imgSize = matches ? "80px" : "100px";
   const menus = [
     { href: "#hero", name: "App" },
     { href: "#the-project", name: "The Project" },
@@ -44,30 +41,6 @@ export default function Header() {
     setConnectDialogOpen(false);
   };
 
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY === 0) {
-        setShow(true);
-      } else if (window.scrollY > lastScrollY) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", controlNavbar);
-
-      // cleanup function
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
-
   return (
     <>
       <Drawer
@@ -89,7 +62,7 @@ export default function Header() {
           <img
             src={require("../images/ohare.png")}
             alt='ohare'
-            style={{ width: imgSize, height: imgSize }}
+            style={{ width: imgSize, height: imgSize, zIndex: 10200 }}
           />
         </div>
         <div className='flex flex-col justify-center items-center gap-4 mt-5'>
@@ -155,17 +128,13 @@ export default function Header() {
         </Grid>
       </Dialog>
       <div
-        className={`flex items-center justify-between px-20 sm:px-5 active ${
-          !show && "hidden"
-        } ${lastScrollY === 0 ? "bg-transparent" : "bg-dark"} z-[1000]`}
+        className={`flex items-center justify-between px-20 sm:px-5 sticky top-0 bg-[rgba(255,255,255,.5)]`}
       >
         <div className='flex'>
           {matches && (
-            <IconButton className='' onClick={toggleDrawer(true)}>
+            <IconButton onClick={toggleDrawer(true)}>
               <img
-                src={`https://s2.svgbox.net/hero-solid.svg?ic=menu&color=${
-                  lastScrollY === 0 ? "000" : "fff"
-                }`}
+                src={`https://s2.svgbox.net/hero-solid.svg?ic=menu&color=000`}
                 width='32'
                 height='32'
                 alt='menu'
@@ -179,7 +148,7 @@ export default function Header() {
           />
         </div>
 
-        <div className='flex gap-7 sm:hidden flex-wrap justify-center'>
+        <div className='flex gap-7 lg:hidden flex-wrap justify-center'>
           {menus.map((menu) => (
             <a
               key={menu.href}
@@ -192,7 +161,7 @@ export default function Header() {
           ))}
         </div>
         <Button
-          className='!bg-white !rounded-none !normal-case !h-[40px] !min-w-[142px] sm:!min-w-0  !text-dark'
+          className='!bg-white !rounded-full !normal-case !font-semibold !h-[40px] !min-w-[142px] sm:!min-w-none  !text-accent'
           onClick={() => setConnectDialogOpen(true)}
         >
           Connect
