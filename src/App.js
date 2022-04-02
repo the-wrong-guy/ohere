@@ -33,7 +33,7 @@ function App() {
       <Header />
       <section id='hero' className='bg-gradient w-full'>
         <Container>
-          <div className='px-[100px] flex items-center justify-around py-[100px] sm:flex-col sm:px-5'>
+          <div className='px-[100px] flex items-center justify-around py-[100px] lg:flex-col sm:px-5'>
             <p
               style={{
                 textShadow:
@@ -43,9 +43,9 @@ function App() {
             >
               The O'Hare <br /> Project
             </p>
-            <div className='grid gap-5 sm:pt-12'>
+            <div className='grid gap-5 lg:pt-12'>
               <Button
-                className='!bg-[#141416]  !border-accent !text-accent !normal-case sm:!text-2xl sm:!px-14 sm:!py-2'
+                className='!bg-[#141416]  !border-accent !text-accent !normal-case lg:!text-2xl lg:!px-14 lg:!py-2'
                 style={{ border: "2px solid" }}
                 onClick={() =>
                   window.open(
@@ -57,7 +57,7 @@ function App() {
                 Roadmap
               </Button>
               <Button
-                className='!bg-[#141416]  !border-accent !text-accent !normal-case sm:!text-2xl sm:!px-14 sm:!py-2'
+                className='!bg-[#141416]  !border-accent !text-accent !normal-case lg:!text-2xl lg:!px-14 lg:!py-2'
                 style={{ border: "2px solid" }}
               >
                 Launch App
