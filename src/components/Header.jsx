@@ -160,12 +160,17 @@ export default function Header() {
             </a>
           ))}
         </div>
-        <Button
-          className='!bg-white !rounded-full !normal-case !font-semibold !h-[40px] !min-w-[142px] sm:!min-w-none  !text-accent'
-          onClick={() => setConnectDialogOpen(true)}
-        >
-          Connect
-        </Button>
+        <div className='flex gap-3'>
+          <Button className='!bg-white !rounded-full !normal-case !font-semibold !h-[40px] sm:!min-w-none sm:!px-3 !px-10  !text-accent'>
+            Approve
+          </Button>
+          <Button
+            className='!bg-white !rounded-full !normal-case !font-semibold !h-[40px] sm:!min-w-none sm:!px-3 !px-10  !text-accent'
+            onClick={() => setConnectDialogOpen(true)}
+          >
+            Connect
+          </Button>
+        </div>
       </div>
     </>
   );
